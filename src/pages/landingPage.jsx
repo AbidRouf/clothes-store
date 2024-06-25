@@ -80,7 +80,7 @@ const LandingPage = () => {
     return (
         <div className="landingPage">
             <div className="welcome">
-                Welcome to Khafor
+                Welcome to Khafor!!!!
             </div>
 
             <div className="new-in">
