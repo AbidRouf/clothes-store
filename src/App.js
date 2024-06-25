@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
-
+import LandingPage from './pages/landingPage';
+import Nav from './components/nav';
+import NewInPage from './pages/newIn';
+import Women from './pages/women';
+import Footer from './components/footer';
+import AddProduct from './pages/addproduct';
+import ProductPage from './pages/productPage';
+import Men from './pages/men';
+import ResultPage from './pages/resultPage'; 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/product/:id" element={<ProductPage />} /> 
+        <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/newIn" element={<NewInPage />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/search" element={<ResultPage />} /> 
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

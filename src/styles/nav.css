@@ -1,0 +1,114 @@
+/* NAV */
+
+.navTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+
+.button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.nav__tools {
+    display: flex;
+    justify-content: space-around;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 8px;
+    width: 48%;
+    padding: 8px;
+}
+
+.search__logo {
+    width: 32px;
+    padding-right: 16px;
+}
+
+.search__body {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search__body--input {
+    border: none;
+    background-color: transparent;
+    padding: 8px 0;
+    outline: none;
+    width: calc(100% - 48px); /* Full width minus the space for the logo */
+}
+
+.basket {
+    padding-right: 16px;
+}
+
+.nav-line {
+    border: none;
+    border-top: 1px solid #181717;
+    margin-top: 4px;
+}
+
+/* SUBNAV */
+
+.subNav {
+    width: 60%;
+    margin: 0 auto; /* Center the subNav horizontally */
+}
+
+.subNav__titles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subNav__title {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* nav.css */
+.nav {
+    position: relative; /* Ensures .dropdown is positioned relative to .nav */
+}
+
+.search {
+    position: relative; /* Ensures the dropdown is positioned relative to .search */
+}
+
+.search .dropdown {
+    position: absolute;
+    top: 100%; /* Position directly below the search input */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: calc(100% - 2px); /* Ensures it matches the width of the search bar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.search .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s;
+}
+
+.search .dropdown-item:hover {
+    background-color: #f0f0f0c9;
+}
+
+.search .dropdown-item:last-child {
+    border-bottom: none;
+}

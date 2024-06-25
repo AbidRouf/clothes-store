@@ -1,0 +1,143 @@
+.landingPage {
+    padding: 20px;
+    position: relative;
+}
+
+/* Section styles */
+.new-in {
+    margin-bottom: 40px;
+    position: relative;
+    /* Ensure new-in is the positioning context */
+}
+
+.new-in__title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Container for the product cards with horizontal scrolling */
+.new-in__container {
+    padding: 0 40px;
+    /* Add padding to ensure space for arrows */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+/* Styling for the product cards */
+.new-in__products {
+    display: inline-flex;
+    /* Inline flex to align items horizontally */
+    gap: 20px;
+    /* Space between items */
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px;
+    height: 300px;
+    /* Set a fixed width for the product cards */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image {
+    width: 180px; /* Adjusted width to accommodate the border */
+    height: 180px; /* Adjusted height to accommodate the border */
+    border: 10px solid rgba(255, 255, 255, 0.219); /* Adds a white border around the image */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    background-color: #f0f0f0; /* Optional: Adds a background color to fill any space */
+}
+
+
+.product-card__details {
+    padding: 10px;
+}
+
+.product-card__name {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.product-card__description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.product-card__price {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.shop-now {
+    background-color: #ffce00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shop-now:hover {
+    background-color: #e6b800;
+}
+
+/* Arrow styles */
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none; 
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+    color: #000; /* Set arrow color to black */
+}
+
+.scroll-arrow.left {
+    left: 10px; /* Position slightly inside the container */
+}
+
+.scroll-arrow.right {
+    right: 10px; /* Position slightly inside the container */
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+/*///////////////////////////          PRODUCT PAGE       ///////////////////////////////////*/
+
+.ProductsPage {
+    padding: 20px;
+    min-height: 56vh;
+}
+
+.ProductsPage__title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+
