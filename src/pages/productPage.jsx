@@ -1,29 +1,17 @@
-// ProductPage.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slices/cartSlice';
 import { db } from '../firebase';
 import '../styles/product.css';
-
-
-
-
-
-///////////////////////////////// INCOMPLETE ///////////////////////////////////////
-
-
-
-
-
-
-
-
 
 const ProductPage = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [size, setSize] = useState('');
     const [quantity, setQuantity] = useState(1);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -45,9 +33,12 @@ const ProductPage = () => {
     }, [id]);
 
     const handleAddToCart = () => {
-        // Placeholder function for adding to cart
-        // You can integrate with your cart logic here
-        alert(`Added ${quantity} x ${product.name} (Size: ${size}) to the cart!`);
+        if (size) {
+            dispatch(addToCart({ id: product.id, name: product.name, price: product.price, size, quantity }));
+            alert(`Added ${quantity} x ${product.name} (Size: ${size}) to the cart!`);
+        } else {
+            alert('Please select a size.');
+        }
     };
 
     if (!product) {

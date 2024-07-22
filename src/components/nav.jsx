@@ -40,19 +40,11 @@ const Nav = () => {
         fetchProducts();
     }, []); // Empty dependency array means this useEffect runs only once when the component mounts
 
-
-
-
-
     // resets (and hides dropdown) search when url changes
     useEffect(() => {
         setSearchQuery('');
         setShowDropdown(false);
     }, [location]); // The useEffect runs whenever the location (URL) changes
-
-
-
-
 
     // removes dropdown if anywhere on page pressed
     useEffect(() => {
@@ -70,10 +62,6 @@ const Nav = () => {
         };
 
     }, [dropdownRef, searchRef]); // Depend on the dropdown and search references to handle cleanup
-
-
-
-
 
     // Updates the search query and filters products based on user input
     const handleInputChange = (e) => {
@@ -101,10 +89,6 @@ const Nav = () => {
         }
     };
 
-
-
-
-
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         if (filteredProducts.length === 1) {
@@ -117,9 +101,6 @@ const Nav = () => {
         setSearchQuery('');
         setShowDropdown(false);
     };
-
-
-    
 
     // Navigate to the product page
     const handleProductClick = (id) => {
@@ -180,9 +161,9 @@ const Nav = () => {
                 {/* ICONS */}
                 <div className="nav__tools">
                     <div className="basket">
-                        <button className='button'>
+                        <Link to="/cart" className='button'>
                             <img className="search__logo nav__img" src={basket} alt='Basket' />
-                        </button>
+                        </Link>
                     </div>
                     <div className="account">
                         <button className='button'>

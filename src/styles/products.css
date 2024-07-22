@@ -141,3 +141,27 @@
 }
 
 
+
+/* interview styling */
+
+.characters-container {
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    padding-left: 10%;
+    padding-bottom: 10%;
+}
+
+.item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.name {
+    font-size: 20px;
+}
+
+.image__size {
+    height: 120px;
+}

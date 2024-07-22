@@ -27,11 +27,21 @@
     border-radius: 8px;
     width: 48%;
     padding: 8px;
+    background-color: transparent; /* Make the background transparent */
 }
 
 .search__logo {
     width: 32px;
     padding-right: 16px;
+}
+
+.search__logo-button {
+    background-color: transparent; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    cursor: pointer; /* Ensure button is clickable */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center content vertically */
 }
 
 .search__body {
@@ -45,7 +55,8 @@
     background-color: transparent;
     padding: 8px 0;
     outline: none;
-    width: calc(100% - 48px); /* Full width minus the space for the logo */
+    width: calc(100% - 48px);
+    /* Full width minus the space for the logo */
 }
 
 .basket {
@@ -62,7 +73,8 @@
 
 .subNav {
     width: 60%;
-    margin: 0 auto; /* Center the subNav horizontally */
+    margin: 0 auto;
+    /* Center the subNav horizontally */
 }
 
 .subNav__titles {
@@ -78,22 +90,26 @@
 
 /* nav.css */
 .nav {
-    position: relative; /* Ensures .dropdown is positioned relative to .nav */
+    position: relative;
+    /* Ensures .dropdown is positioned relative to .nav */
 }
 
 .search {
-    position: relative; /* Ensures the dropdown is positioned relative to .search */
+    position: relative;
+    /* Ensures the dropdown is positioned relative to .search */
 }
 
 .search .dropdown {
     position: absolute;
-    top: 100%; /* Position directly below the search input */
+    top: 100%;
+    /* Position directly below the search input */
     left: 0;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 5px;
-    width: calc(100% - 2px); /* Ensures it matches the width of the search bar */
+    width: calc(100% - 2px);
+    /* Ensures it matches the width of the search bar */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
 }
