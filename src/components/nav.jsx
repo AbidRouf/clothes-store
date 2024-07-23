@@ -169,7 +169,7 @@ const Nav = () => {
                                 <img className="search__logo nav__img" src={basket} alt='Basket' />
                                 {/* Display the total quantity of items in the cart */}
                                 {totalQuantity > 0 && (
-                                    <span className="basket__count">{totalQuantity}</span>
+                                    <span className="basket__count text-red-500">{totalQuantity}</span>
                                 )}
                             </div>
                         </Link>
