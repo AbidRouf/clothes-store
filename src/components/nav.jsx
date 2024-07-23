@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux'; // Import useSelector
 import "../styles/nav.css";
 import searchIcon from "../images/searchIcon.png";
 import profile from "../images/user.png";
@@ -24,6 +25,9 @@ const Nav = () => {
     // Hook to detect changes in the URL, used to reset the search query on navigation
     const location = useLocation();
 
+    // Fetch cart items from Redux
+    const totalQuantity = useSelector(state => state.cart.totalQuantity);
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -40,13 +44,13 @@ const Nav = () => {
         fetchProducts();
     }, []); // Empty dependency array means this useEffect runs only once when the component mounts
 
-    // resets (and hides dropdown) search when url changes
+    // Resets (and hides dropdown) search when URL changes
     useEffect(() => {
         setSearchQuery('');
         setShowDropdown(false);
     }, [location]); // The useEffect runs whenever the location (URL) changes
 
-    // removes dropdown if anywhere on page pressed
+    // Removes dropdown if anywhere on page is pressed
     useEffect(() => {
         const handleClickOutside = (event) => {
             // Check if click is outside the dropdown and the search input
@@ -55,12 +59,11 @@ const Nav = () => {
             }
         };
 
-        // event listener to detect clicks outside the dropdown
+        // Event listener to detect clicks outside the dropdown
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-
     }, [dropdownRef, searchRef]); // Depend on the dropdown and search references to handle cleanup
 
     // Updates the search query and filters products based on user input
@@ -68,9 +71,9 @@ const Nav = () => {
         const userinput = e.target.value;
         setSearchQuery(userinput);
 
-        // removes whitespace
+        // Removes whitespace
         if (userinput.trim()) {
-            // show filtered options. include ensures "a" would show apple
+            // Show filtered options. Include ensures "a" would show apple
             let matches = products.filter(product =>
                 product.name.toLowerCase().includes(userinput.trim().toLowerCase())
             );
@@ -130,7 +133,7 @@ const Nav = () => {
                             onChange={handleInputChange}
                         />
 
-                        {/* search button */}
+                        {/* Search button */}
                         <button type="submit" className="search__logo-button">
                             <img className="search__logo nav__img" src={searchIcon} alt='Search' />
                         </button>
@@ -162,7 +165,13 @@ const Nav = () => {
                 <div className="nav__tools">
                     <div className="basket">
                         <Link to="/cart" className='button'>
-                            <img className="search__logo nav__img" src={basket} alt='Basket' />
+                            <div className="basket__icon">
+                                <img className="search__logo nav__img" src={basket} alt='Basket' />
+                                {/* Display the total quantity of items in the cart */}
+                                {totalQuantity > 0 && (
+                                    <span className="basket__count">{totalQuantity}</span>
+                                )}
+                            </div>
                         </Link>
                     </div>
                     <div className="account">
