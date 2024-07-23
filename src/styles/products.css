@@ -40,22 +40,21 @@
     border-radius: 8px;
     overflow: hidden;
     width: 200px;
-    height: 300px;
-    /* Set a fixed width for the product cards */
+    height: 300px; /* Fixed height for the card */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Ensure that image and details stack vertically */
 }
 
 .product-card__image {
-    width: 180px; /* Adjusted width to accommodate the border */
-    height: 180px; /* Adjusted height to accommodate the border */
-    border: 10px solid rgba(255, 255, 255, 0.219); /* Adds a white border around the image */
-    border-radius: 8px; /* Optional: Adds rounded corners */
-    background-color: #f0f0f0; /* Optional: Adds a background color to fill any space */
+    width: 100%; /* Ensure the image takes the full width of the card */
+    height: 60%; /* Adjust the height as needed, here it's 60% of the card height */
+    border-bottom: 1px solid #ddd; 
 }
-
 
 .product-card__details {
     padding: 10px;
+    flex-grow: 1; /* Ensure that the details section takes up remaining space */
 }
 
 .product-card__name {
