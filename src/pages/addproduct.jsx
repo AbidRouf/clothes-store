@@ -47,11 +47,11 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="ProductsPage">
+    <div className="ProductsPage flex justify-center items-center min-h-screen bg-antiquewhite-100">
 
-      <div style={styles.container}>
-        <h2 style={styles.heading}>Add Product</h2>
-        <form onSubmit={handleProductSubmit} style={styles.form}>
+      <div className="max-w-md w-full p-6 text-center border border-gray-300 rounded-lg bg-white shadow-md">
+        <h2 className="mb-6 text-2xl font-semibold text-gray-800">Add Product</h2>
+        <form onSubmit={handleProductSubmit} className="flex flex-col">
           {/* Input for product name */}
           <input
             type="text"
@@ -60,7 +60,7 @@ const AddProduct = () => {
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
             required
-            style={styles.input}
+            className="mb-4 p-2 text-lg border border-gray-300 rounded"
           />
           {/* Input for product price */}
           <input
@@ -70,7 +70,7 @@ const AddProduct = () => {
             value={productPrice}
             onChange={(e) => setProductPrice(e.target.value)}
             required
-            style={styles.input}
+            className="mb-4 p-2 text-lg border border-gray-300 rounded"
           />
           {/* Input for product image */}
           <input
@@ -79,7 +79,7 @@ const AddProduct = () => {
             accept="image/*"
             onChange={(e) => setProductImage(e.target.files[0])}
             required
-            style={styles.input}
+            className="mb-4 p-2 text-lg border border-gray-300 rounded"
           />
           {/* Dropdown for product category */}
           <select
@@ -87,75 +87,23 @@ const AddProduct = () => {
             value={productCategory}
             onChange={(e) => setProductCategory(e.target.value)}
             required
-            style={styles.select}
+            className="mb-4 p-2 text-lg border border-gray-300 rounded bg-white"
           >
             <option value="">Select Category</option>
             <option value="women">Women</option>
             <option value="male">Male</option>
-            <option value="kids">kids</option>
+            <option value="kids">Kids</option>
           </select>
           {/* Submit button */}
-          <button type="submit" disabled={loading} style={styles.button}>
+          <button type="submit" disabled={loading} className="py-2 px-4 text-lg text-white bg-blue-500 hover:bg-blue-600 rounded">
             {loading ? 'Adding Product...' : 'Add Product'}
           </button>
         </form>
         {/* Display message */}
-        {message && <p style={styles.message}>{message}</p>}
+        {message && <p className="mt-4 text-lg text-green-500">{message}</p>}
       </div>
     </div>
   );
-};
-
-// Quick css styling add to own file later
-
-const styles = {
-  container: {
-    maxWidth: '400px',
-    margin: '0 auto',
-    padding: '20px',
-    textAlign: 'center',
-    border: '1px solid #ddd',
-    borderRadius: '8px',
-    backgroundColor: '#f9f9f9'
-  },
-  heading: {
-    marginBottom: '20px',
-    fontSize: '24px',
-    color: '#333'
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  input: {
-    marginBottom: '15px',
-    padding: '10px',
-    fontSize: '16px',
-    border: '1px solid #ddd',
-    borderRadius: '4px'
-  },
-  select: {
-    marginBottom: '15px',
-    padding: '10px',
-    fontSize: '16px',
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-    backgroundColor: '#fff'
-  },
-  button: {
-    padding: '10px 15px',
-    fontSize: '16px',
-    color: '#fff',
-    backgroundColor: '#007bff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer'
-  },
-  message: {
-    marginTop: '20px',
-    fontSize: '16px',
-    color: '#28a745'
-  }
 };
 
 export default AddProduct;
